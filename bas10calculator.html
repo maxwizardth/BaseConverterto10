@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh"  content="4000">
+</head>
+    <body>
+        <style type="text/css">
+           
+            div{background: #48aa49;
+                color:white;
+                text-align: center;
+                height: 24vh;
+                width: 50vw;
+                margin: 33px;
+                padding: 55px;
+                font-size: 33px;}
+                input{font-size: 22px;
+                    background: black;
+                    color: red;
+                    width:22vw;
+                    height: 5vh;
+                    margin-bottom: 3vh;
+                    border:solid white 4px;
+                    margin-left: 2vw;
+
+                }
+                #convert2,#convert1{
+                    width:20vw;
+                    height: 5vh;
+                    background-color:#894a88;
+                    color: white;
+                    border-radius: 25%;
+                }
+               #showWorkings{height: 90vh;
+                word-wrap: break-word;}
+                body{
+                margin-left: 18vw;
+                }
+        </style>
+        <div>
+        THE NUMBER:<input type="text" value="input your number here" id="thenumber"><br>
+        INPUT BASE:<input type="text" value="input your base here" id="base"><br>
+    <input type="button" id="convert2" value='convert to base10' onclick="basey()">
+    <input type="button" id="convert1" value="conert to base10">
+        </div>
+        <div id="showWorkings">
+            METHOD1
+        <h3 id="demo"></h3>
+        <h3 id="dem"></h3>
+        <h3 id="print"></h3>
+        METHOD2
+        <h3 id="print3"></h3>
+        <h3 id="print2"></h3>
+    </div>
+        <script>
+           alert('use any of the button to calculate your answer in different method')
+            alert("join me on my whatsapp to get more calculator on that work your maths for you");
+            alert("this calculator is made by maxwizard");
+           function basey(){ var a=document.getElementsByTagName('input')[0].value;
+        
+var l=a.length;
+var base=document.getElementsByTagName('input')[1].value;
+document.getElementById('demo').innerHTML="";
+document.getElementById('dem').innerHTML="";
+document.getElementById('print').innerHTML="";
+document.getElementById('demo').innerHTML=a+"<sub>"+base+"</sub>"+"=";
+
+
+for (var i=0;i<l;i++){
+    var mult=a[i]*(base**(l-i-1));
+
+document.getElementById('demo').innerHTML+=a[i]+'*'+base+"<sup>"+(l-i-1)+"</sup>"+"+";
+    if (i==l-1) {document.getElementById('demo').innerHTML+="===>" }
+    document.getElementById('dem').innerHTML+=a[i]+'*'+base**(l-i-1)+"+";
+if (i==l-1) {document.getElementById('dem').innerHTML+="===>" }
+document.getElementById('print').innerHTML+=mult+"+";}
+var sum=document.getElementById('print').innerHTML;
+document.getElementById('print').innerHTML+="="+eval(sum+0)+"<sub>"+10+"</sub>";
+    
+}
+
+     </script>
+    
+<script src="jquery-3.3.1.min.js"></script>
+<script >
+
+    $('#convert1').click(function() 
+    {
+     var a=$('#thenumber').val();
+     var b=$('#base').val();
+     var n=a.length-1;
+     var digit=a[0];
+
+    $("#print3").html(a+"<sub>"+b+"</sub>"+"= ");
+    $('#print2').text('');
+    for(var i=0;i<n;i++ )
+    {
+        var nextDigit=a[eval(i+"+"+1)];
+        var multiplyAdd=eval(digit*b+"+"+nextDigit);
+        $('#print2').append(digit+"*"+b+"+"+nextDigit+"= "+multiplyAdd+"==>");  
+        digit=multiplyAdd;
+        if (i==n-1) {$('#print2').append(multiplyAdd+"<sub>10</sub>") }
+    }   
+    });
+
+</script>
+    </body>
+</head>
+</html>
